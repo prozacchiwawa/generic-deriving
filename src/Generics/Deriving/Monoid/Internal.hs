@@ -228,15 +228,15 @@ instance GMonoid a => GMonoid (Down a) where
   gmappend = gmappenddefault
 
 #if MIN_VERSION_base(4,7,0)
-instance GMonoid
-# if MIN_VERSION_base(4,9,0)
-                 (Proxy s)
-# else
-                 (Proxy (s :: *))
-# endif
-                 where
-  gmempty  = memptydefault
-  gmappend = mappenddefault
+-- instance GMonoid
+-- # if MIN_VERSION_base(4,9,0)
+--                  (Proxy s)
+-- # else
+--                  (Proxy (s :: *))
+-- # endif
+--                  where
+--   gmempty  = memptydefault
+--   gmappend = mappenddefault
 #endif
 
 #if MIN_VERSION_base(4,8,0)

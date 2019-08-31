@@ -1,0 +1,28 @@
+--- generic-deriving.cabal
++++ generic-deriving.cabal
+@@ -62,17 +62,17 @@ library
+                         Generics.Deriving.Traversable
+                         Generics.Deriving.Uniplate
+ 
+-                        Generics.Deriving.TH
++                        -- Generics.Deriving.TH
+ 
+   other-modules:        Generics.Deriving.Base.Internal
+-                        Generics.Deriving.TH.Internal
++                        -- Generics.Deriving.TH.Internal
+                         Paths_generic_deriving
+-  if flag(base-4-9)
+-    build-depends:      base >= 4.9 && < 5
+-    other-modules:      Generics.Deriving.TH.Post4_9
+-  else
+-    build-depends:      base >= 4.3 && < 4.9
+-    other-modules:      Generics.Deriving.TH.Pre4_9
++  -- if flag(base-4-9)
++  --   build-depends:      base >= 4.9 && < 5
++  --   other-modules:      Generics.Deriving.TH.Post4_9
++  -- else
++  build-depends:      base >= 4.3 && < 4.9
++    -- other-modules:      Generics.Deriving.TH.Pre4_9
+ 
+   build-depends:        containers       >= 0.1 && < 0.6
+                       , ghc-prim                   < 1

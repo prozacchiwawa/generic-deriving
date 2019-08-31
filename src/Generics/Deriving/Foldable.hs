@@ -119,23 +119,23 @@ instance (GFoldable' f, GFoldable' g) => GFoldable' (f :*: g) where
 instance (GFoldable f, GFoldable' g) => GFoldable' (f :.: g) where
   gfoldMap' f (Comp1 x) = gfoldMap (gfoldMap' f) x
 
-instance GFoldable' UAddr where
-  gfoldMap' _ (UAddr _) = mempty
+-- instance GFoldable' UAddr where
+--   gfoldMap' _ (UAddr _) = mempty
 
-instance GFoldable' UChar where
-  gfoldMap' _ (UChar _) = mempty
+-- instance GFoldable' UChar where
+--   gfoldMap' _ (UChar _) = mempty
 
-instance GFoldable' UDouble where
-  gfoldMap' _ (UDouble _) = mempty
+-- instance GFoldable' UDouble where
+--   gfoldMap' _ (UDouble _) = mempty
 
-instance GFoldable' UFloat where
-  gfoldMap' _ (UFloat _) = mempty
+-- instance GFoldable' UFloat where
+--   gfoldMap' _ (UFloat _) = mempty
 
-instance GFoldable' UInt where
-  gfoldMap' _ (UInt _) = mempty
+-- instance GFoldable' UInt where
+--   gfoldMap' _ (UInt _) = mempty
 
-instance GFoldable' UWord where
-  gfoldMap' _ (UWord _) = mempty
+-- instance GFoldable' UWord where
+--   gfoldMap' _ (UWord _) = mempty
 
 class GFoldable t where
   gfoldMap :: Monoid m => (a -> m) -> t a -> m

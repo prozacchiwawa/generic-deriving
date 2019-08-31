@@ -156,14 +156,14 @@ instance GSemigroup (Either a b) where
   gsappend a      _ = a
 
 #if MIN_VERSION_base(4,7,0)
-instance GSemigroup
-# if MIN_VERSION_base(4,9,0)
-                 (Proxy s)
-# else
-                 (Proxy (s :: *))
-# endif
-                 where
-  gsappend    = gsappenddefault
+-- instance GSemigroup
+-- # if MIN_VERSION_base(4,9,0)
+--                  (Proxy s)
+-- # else
+--                  (Proxy (s :: *))
+-- # endif
+--                  where
+--   gsappend    = gsappenddefault
 #endif
 
 #if MIN_VERSION_base(4,8,0)

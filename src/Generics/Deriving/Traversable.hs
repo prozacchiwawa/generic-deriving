@@ -113,23 +113,23 @@ instance (GTraversable' f, GTraversable' g) => GTraversable' (f :*: g) where
 instance (GTraversable f, GTraversable' g) => GTraversable' (f :.: g) where
   gtraverse' f (Comp1 x) = Comp1 <$> gtraverse (gtraverse' f) x
 
-instance GTraversable' UAddr where
-  gtraverse' _ (UAddr a) = pure (UAddr a)
+-- instance GTraversable' UAddr where
+--   gtraverse' _ (UAddr a) = pure (UAddr a)
 
-instance GTraversable' UChar where
-  gtraverse' _ (UChar c) = pure (UChar c)
+-- instance GTraversable' UChar where
+--   gtraverse' _ (UChar c) = pure (UChar c)
 
-instance GTraversable' UDouble where
-  gtraverse' _ (UDouble d) = pure (UDouble d)
+-- instance GTraversable' UDouble where
+--   gtraverse' _ (UDouble d) = pure (UDouble d)
 
-instance GTraversable' UFloat where
-  gtraverse' _ (UFloat f) = pure (UFloat f)
+-- instance GTraversable' UFloat where
+--   gtraverse' _ (UFloat f) = pure (UFloat f)
 
-instance GTraversable' UInt where
-  gtraverse' _ (UInt i) = pure (UInt i)
+-- instance GTraversable' UInt where
+--   gtraverse' _ (UInt i) = pure (UInt i)
 
-instance GTraversable' UWord where
-  gtraverse' _ (UWord w) = pure (UWord w)
+-- instance GTraversable' UWord where
+--   gtraverse' _ (UWord w) = pure (UWord w)
 
 class (GFunctor t, GFoldable t) => GTraversable t where
   gtraverse :: Applicative f => (a -> f b) -> t a -> f (t b)

@@ -163,16 +163,16 @@ instance (GShow' a, GShow' b) => GShow' (a :*: b) where
   isNullary _ = False
 
 -- Unboxed types
-instance GShow' UChar where
-  gshowsPrec' _ _ (UChar c)   = showsPrec 0 (C# c) . showChar '#'
-instance GShow' UDouble where
-  gshowsPrec' _ _ (UDouble d) = showsPrec 0 (D# d) . showString "##"
-instance GShow' UFloat where
-  gshowsPrec' _ _ (UFloat f)  = showsPrec 0 (F# f) . showChar '#'
-instance GShow' UInt where
-  gshowsPrec' _ _ (UInt i)    = showsPrec 0 (I# i) . showChar '#'
-instance GShow' UWord where
-  gshowsPrec' _ _ (UWord w)   = showsPrec 0 (W# w) . showString "##"
+-- instance GShow' UChar where
+--   gshowsPrec' _ _ (UChar c)   = showsPrec 0 (C# c) . showChar '#'
+-- instance GShow' UDouble where
+--   gshowsPrec' _ _ (UDouble d) = showsPrec 0 (D# d) . showString "##"
+-- instance GShow' UFloat where
+--   gshowsPrec' _ _ (UFloat f)  = showsPrec 0 (F# f) . showChar '#'
+-- instance GShow' UInt where
+--   gshowsPrec' _ _ (UInt i)    = showsPrec 0 (I# i) . showChar '#'
+-- instance GShow' UWord where
+--   gshowsPrec' _ _ (UWord w)   = showsPrec 0 (W# w) . showString "##"
 
 
 class GShow a where
@@ -574,20 +574,20 @@ instance GShow a => GShow (Sum a) where
 instance GShow (U1 p) where
   gshowsPrec = gshowsPrecdefault
 
-instance GShow (UChar p) where
-  gshowsPrec = gshowsPrecdefault
+-- instance GShow (UChar p) where
+--   gshowsPrec = gshowsPrecdefault
 
-instance GShow (UDouble p) where
-  gshowsPrec = gshowsPrecdefault
+-- instance GShow (UDouble p) where
+--   gshowsPrec = gshowsPrecdefault
 
-instance GShow (UFloat p) where
-  gshowsPrec = gshowsPrecdefault
+-- instance GShow (UFloat p) where
+--   gshowsPrec = gshowsPrecdefault
 
-instance GShow (UInt p) where
-  gshowsPrec = gshowsPrecdefault
+-- instance GShow (UInt p) where
+--   gshowsPrec = gshowsPrecdefault
 
-instance GShow (UWord p) where
-  gshowsPrec = gshowsPrecdefault
+-- instance GShow (UWord p) where
+--   gshowsPrec = gshowsPrecdefault
 
 instance GShow Version where
   gshowsPrec = gshowsPrecdefault

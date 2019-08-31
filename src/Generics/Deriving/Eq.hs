@@ -16,8 +16,6 @@
 {-# LANGUAGE PolyKinds #-}
 #endif
 
-#include "HsBaseConfig.h"
-
 module Generics.Deriving.Eq (
   -- * Generic Eq class
     GEq(..)
@@ -105,18 +103,18 @@ instance (GEq' a, GEq' b) => GEq' (a :*: b) where
   geq' (a1 :*: b1) (a2 :*: b2) = geq' a1 a2 && geq' b1 b2
 
 -- Unboxed types
-instance GEq' UAddr where
-  geq' (UAddr a1) (UAddr a2)     = isTrue# (eqAddr# a1 a2)
-instance GEq' UChar where
-  geq' (UChar c1) (UChar c2)     = isTrue# (eqChar# c1 c2)
-instance GEq' UDouble where
-  geq' (UDouble d1) (UDouble d2) = isTrue# (d1 ==## d2)
-instance GEq' UFloat where
-  geq' (UFloat f1) (UFloat f2)   = isTrue# (eqFloat# f1 f2)
-instance GEq' UInt where
-  geq' (UInt i1) (UInt i2)       = isTrue# (i1 ==# i2)
-instance GEq' UWord where
-  geq' (UWord w1) (UWord w2)     = isTrue# (eqWord# w1 w2)
+-- instance GEq' UAddr where
+--   geq' (UAddr a1) (UAddr a2)     = isTrue# (eqAddr# a1 a2)
+-- instance GEq' UChar where
+--   geq' (UChar c1) (UChar c2)     = isTrue# (eqChar# c1 c2)
+-- instance GEq' UDouble where
+--   geq' (UDouble d1) (UDouble d2) = isTrue# (d1 ==## d2)
+-- instance GEq' UFloat where
+--   geq' (UFloat f1) (UFloat f2)   = isTrue# (eqFloat# f1 f2)
+-- instance GEq' UInt where
+--   geq' (UInt i1) (UInt i2)       = isTrue# (i1 ==# i2)
+-- instance GEq' UWord where
+--   geq' (UWord w1) (UWord w2)     = isTrue# (eqWord# w1 w2)
 
 #if !(MIN_VERSION_base(4,7,0))
 isTrue# :: Bool -> Bool
@@ -358,8 +356,8 @@ instance GEq CWchar where
   geq = (==)
 
 #if MIN_VERSION_base(4,9,0)
-instance GEq DecidedStrictness where
-  geq = geqdefault
+-- instance GEq DecidedStrictness where
+--   geq = geqdefault
 #endif
 
 instance GEq Double where
@@ -495,14 +493,14 @@ instance GEq a => GEq (Product a) where
   geq = geqdefault
 
 #if MIN_VERSION_base(4,7,0)
-instance GEq
-# if MIN_VERSION_base(4,9,0)
-             (Proxy s)
-# else
-             (Proxy (s :: *))
-# endif
-             where
-  geq = geqdefault
+-- instance GEq
+-- # if MIN_VERSION_base(4,9,0)
+--              (Proxy s)
+-- # else
+--              (Proxy (s :: *))
+-- # endif
+--              where
+--   geq = geqdefault
 #endif
 
 instance GEq (Ptr a) where
@@ -518,11 +516,11 @@ instance GEq (StablePtr a) where
   geq = (==)
 
 #if MIN_VERSION_base(4,9,0)
-instance GEq SourceStrictness where
-  geq = geqdefault
+-- instance GEq SourceStrictness where
+--   geq = geqdefault
 
-instance GEq SourceUnpackedness where
-  geq = geqdefault
+-- instance GEq SourceUnpackedness where
+--   geq = geqdefault
 #endif
 
 instance GEq a => GEq (Sum a) where
@@ -531,23 +529,23 @@ instance GEq a => GEq (Sum a) where
 instance GEq (U1 p) where
   geq = geqdefault
 
-instance GEq (UAddr p) where
-  geq = geqdefault
+-- instance GEq (UAddr p) where
+--   geq = geqdefault
 
-instance GEq (UChar p) where
-  geq = geqdefault
+-- instance GEq (UChar p) where
+--   geq = geqdefault
 
-instance GEq (UDouble p) where
-  geq = geqdefault
+-- instance GEq (UDouble p) where
+--   geq = geqdefault
 
-instance GEq (UFloat p) where
-  geq = geqdefault
+-- instance GEq (UFloat p) where
+--   geq = geqdefault
 
-instance GEq (UInt p) where
-  geq = geqdefault
+-- instance GEq (UInt p) where
+--   geq = geqdefault
 
-instance GEq (UWord p) where
-  geq = geqdefault
+-- instance GEq (UWord p) where
+--   geq = geqdefault
 
 instance GEq Version where
   geq = (==)

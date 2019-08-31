@@ -109,23 +109,23 @@ instance (GFunctor' f, GFunctor' g) => GFunctor' (f :*: g) where
 instance (GFunctor f, GFunctor' g) => GFunctor' (f :.: g) where
   gmap' f (Comp1 x) = Comp1 (gmap (gmap' f) x)
 
-instance GFunctor' UAddr where
-  gmap' _ (UAddr a) = UAddr a
+-- instance GFunctor' UAddr where
+--   gmap' _ (UAddr a) = UAddr a
 
-instance GFunctor' UChar where
-  gmap' _ (UChar c) = UChar c
+-- instance GFunctor' UChar where
+--   gmap' _ (UChar c) = UChar c
 
-instance GFunctor' UDouble where
-  gmap' _ (UDouble d) = UDouble d
+-- instance GFunctor' UDouble where
+--   gmap' _ (UDouble d) = UDouble d
 
-instance GFunctor' UFloat where
-  gmap' _ (UFloat f) = UFloat f
+-- instance GFunctor' UFloat where
+--   gmap' _ (UFloat f) = UFloat f
 
-instance GFunctor' UInt where
-  gmap' _ (UInt i) = UInt i
+-- instance GFunctor' UInt where
+--   gmap' _ (UInt i) = UInt i
 
-instance GFunctor' UWord where
-  gmap' _ (UWord w) = UWord w
+-- instance GFunctor' UWord where
+--   gmap' _ (UWord w) = UWord w
 
 class GFunctor f where
   gmap :: (a -> b) -> f a -> f b

@@ -46,7 +46,7 @@ source-repository head
 flag base-4-9
   description:          Use base-4.9 or later. This version of base uses a
                         DataKinds-based encoding of GHC generics metadata.
-  default:              False
+  default:              True
 
 library
   hs-source-dirs:       src
