@@ -617,7 +617,8 @@ module Generics.Deriving.Base.Internal (
 #endif
 #if !(MIN_VERSION_base(4,9,0))
   -- ** Unboxed representation types
-    URec(..), UAddr, UChar, UDouble, UFloat, UInt, UWord
+    URec(..)
+--    , UAddr, UChar, UDouble, UFloat, UInt, UWord
 #endif
   ) where
 

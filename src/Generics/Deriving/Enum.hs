@@ -490,14 +490,14 @@ instance GEnum a => GEnum (Product a) where
   genum = genumDefault
 
 #if MIN_VERSION_base(4,7,0)
--- instance GEnum
+instance GEnum
 -- # if MIN_VERSION_base(4,9,0)
---                (Proxy s)
+--               (Proxy s)
 -- # else
---                (Proxy (s :: *))
+               (Proxy (s :: *))
 -- # endif
---                where
---   genum = genumDefault
+               where
+  genum = genumDefault
 #endif
 
 instance GEnum (f p) => GEnum (Rec1 f p) where
