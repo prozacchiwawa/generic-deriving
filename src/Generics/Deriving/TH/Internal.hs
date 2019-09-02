@@ -461,7 +461,7 @@ reifyDataInfo name = do
  `recover`
   do DatatypeInfo { datatypeContext   = ctxt
                   , datatypeName      = parentName
-                  , datatypeInstTypes = tys
+                  , datatypeVars      = tys
                   , datatypeVariant   = variant
                   , datatypeCons      = cons
                   } <- reifyDatatype name
